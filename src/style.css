@@ -9,12 +9,6 @@
   .bg-gray {
     background-color: #D6D7DA;
   }
-  .gradient {
-    background: linear-gradient(45deg, #0B2349 33%, #0D61BC 66%, #8AA9D6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: black;
-  }
   .bg-content {
     background-color: rgb(236, 236, 238);
   }
@@ -24,6 +18,11 @@
     height: 0;
     border: none;
     border-top: 1px solid rgb(222, 222, 241);
+  }
+
+
+  input::placeholder, textarea::placeholder {
+    color: black;
   }
 
 }
