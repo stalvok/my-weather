@@ -29,7 +29,7 @@
                 <div class="h-12 flex items-center text-sm font-semibold gap-4"><img height="32" width="32" src="../assets/icons/rain-small.png">Rain
                   {{weather.list[0].main.humidity}}%</div>
               </div>
-              <div class="text-2xl lg:mt-10 lg:h-20 p-4 rounded-xl text-white z-10 bg-center bg-cover text-center relative lg:text-3xl">
+              <div class="text-2xl flex  items-center justify-center lg:mt-10 lg:h-28 p-4 rounded-xl text-white z-10 bg-center bg-cover relative lg:text-3xl">
                 <img class="h-full -m-4 rounded-xl w-full absolute -z-10" src="https://img5.goodfon.ru/original/2048x1284/4/68/nyc-skyline-new-york-in-blue.jpg">
                 {{weather.city.country}},{{weather.city.name}}
               </div>
@@ -115,7 +115,7 @@ export default {
   },
   methods: {
      async fetchWeather() {
-         await fetch('../src/mosk/forecast.json', {
+         await fetch('../public/mosk/forecast.json', {
          headers: {
            'Content-Type': 'application/json',
            'Accept': 'application/json'
@@ -130,7 +130,6 @@ export default {
     },
     GetCurrentDayShort() {
      return  dayjs().day()
-
     },
 
   },
