@@ -115,7 +115,7 @@ export default {
   },
   methods: {
      async fetchWeather() {
-         await fetch('../public/forecast.json', {
+         await fetch('../mock/forecast.json', {
          headers: {
            'Content-Type': 'application/json',
            'Accept': 'application/json'
@@ -134,9 +134,6 @@ export default {
     GetCurrentDayShort(n) {
       return  dayjs().weekday(n).$d.toString().substring(0,10)
     },
-
-  },
-  computed : {
 
   },
   mounted() {
