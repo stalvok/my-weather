@@ -17,7 +17,7 @@
            </div>
            <img class="h-40 lg:h-56" src="../assets/icons/weather-state1.png">
            <div class="mt-36">
-             <div class="text-6xl relative font-light lg:text-7xl lg:self-start">{{kelvinToCelsius}}<span class="text-4xl relative bottom-[20px] lg:bottom-[64px]">°C</span></div>
+             <div class="text-6xl relative font-light lg:text-7xl lg:self-start">{{kelvinToCelsius(this.weather.list[0].main.temp)}}<span class="text-4xl relative bottom-[20px] lg:bottom-[64px]">°C</span></div>
              <div class="text-xl font-normal lg:text-3xl lg:mt-10 lg:self-start">{{GetCurrentDay()}}</div>
            </div>
          </div>
@@ -39,22 +39,22 @@
         <div class="flex flex-col p-2 w-full bg-content rounded-b-[56px] lg:rounded-bl-none lg:rounded-r-[56px]">
           <div class="h-64 mt-12 hidden gap-4 lg:flex flex-col lg:flex-row">
             <div class="w-full flex flex-col justify-between bg-white h-[186px] rounded-2xl p-4 items-center">
-              <div>{{weekDays[GetCurrentDayShort() + 1]}}</div>
+              <div>{{GetCurrentDayShort(1)}}</div>
               <img class="h-20" src="../assets/icons/weather-state1.png">
-              <div><span>{{weather.list[6].main.temp}} {{weather.list[6].dt_txt}}</span></div>
+              <div><span>{{kelvinToCelsius(weather.list[6].main.temp)}} {{weather.list[6].dt_txt}}</span></div>
             </div>
             <div class="w-full flex flex-col justify-between bg-white h-[186px] rounded-2xl p-4 items-center">
-              <div>{{weekDays[GetCurrentDayShort() + 2]}}</div>
+              <div>{{GetCurrentDayShort(2)}}</div>
               <img class="h-20" src="../assets/icons/weather-state1.png">
               <div>{{weather.list[14].main.temp}} {{weather.list[14].dt_txt}}</div>
             </div>
             <div class="w-full flex flex-col justify-between bg-white h-[186px] rounded-2xl p-4 items-center">
-              <div>{{weekDays[GetCurrentDayShort() + 3]}}</div>
+              <div>{{GetCurrentDayShort(3)}}</div>
               <img class="h-20" src="../assets/icons/weather-state1.png">
               <div>{{weather.list[22].main.temp}} {{weather.list[22].dt_txt}}</div>
             </div>
             <div class="w-full flex flex-col justify-between bg-white h-[186px] rounded-2xl p-4 items-center">
-              <div>{{weekDays[GetCurrentDayShort() + 4]}}</div>
+              <div>{{GetCurrentDayShort(4)}}</div>
               <img class="h-20" src="../assets/icons/weather-state1.png">
               <div>{{weather.list[29].main.temp}} {{weather.list[29].dt_txt}}</div>
             </div>
@@ -115,7 +115,7 @@ export default {
   },
   methods: {
      async fetchWeather() {
-         await fetch('../public/mosk/forecast.json', {
+         await fetch('../public/forecast.json', {
          headers: {
            'Content-Type': 'application/json',
            'Accept': 'application/json'
@@ -125,24 +125,25 @@ export default {
            .then(json => this.weather = json)
       console.log(this.weather,'weather')
     },
+    kelvinToCelsius(temp) {
+      return Math.round(temp - 273.15).toString()
+    },
     GetCurrentDay() {
        return new Date().toLocaleString("en-US", { weekday: "long" })
     },
-    GetCurrentDayShort() {
-     return  dayjs().day()
+    GetCurrentDayShort(n) {
+      return  dayjs().weekday(n).$d.toString().substring(0,10)
     },
 
   },
   computed : {
-    kelvinToCelsius() {
-      return (this.weather.list[0].main.temp - 273.15).toFixed(2).toString()
-    }
+
   },
   mounted() {
     dayjs.extend(weekday)
     this.fetchWeather()
-    console.log(new Date().toLocaleString("en-US", { weekday: "long" }),)
-    console.log(dayjs().day(),'!!!!!!')
+    console.log(dayjs().weekday(1).$d,'!!!!!!')
+
   }
 }
 
