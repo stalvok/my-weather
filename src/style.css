@@ -19,10 +19,18 @@
     border: none;
     border-top: 1px solid rgb(222, 222, 241);
   }
-
+  .weeks-day-card {
+    @apply flex flex-col bg-white rounded-2xl p-4 items-center
+  }
+  .highlights-card {
+    @apply p-4 bg-white min-w-[220px] rounded-2xl  flex flex-col justify-between
+  }
 
   input::placeholder, textarea::placeholder {
     color: black;
   }
+  input:focus {
+     border: 1px solid black; /* Рамка при получении фокуса */
+   }
 
 }
