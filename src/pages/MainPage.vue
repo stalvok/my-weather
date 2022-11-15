@@ -8,7 +8,7 @@
           <div class="flex items-center gap-2">
             <img class="h-5 " src="../assets/icons/search-icon.png">
             <input
-              class="w-full max-w-[240px] pl-4 focus:bg-gray-200 rounded-2xl py-2 px-1 font-semibold "
+              class="w-full max-w-[240px] pl-4 focus:bg-gray-200 rounded-2xl py-2 px-1 font-semibold"
               placeholder="Search for places..."
             >
         </div>
@@ -55,7 +55,7 @@
             <div class="text-2xl flex items-center gap-4">
               <span class="px-3 py-2 bg-black rounded-full text-white">°C</span>
               <span class="text-black px-3 py-2 bg-white rounded-full">°F</span>
-              <img class="w-14 h-14 rounded-xl" src="../assets/img/Indian-2.jpg">
+              <img class="w-14 h-14 rounded-xl" src="../assets/img/indian-2.jpg">
             </div>
           </div>
           <div class="mt-12 hidden gap-4 lg:grid lg:grid-cols-4 xl:grid-cols-7">
