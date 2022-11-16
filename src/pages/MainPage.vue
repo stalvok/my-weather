@@ -1,9 +1,9 @@
 <template>
   <div v-if="weather !== ''" class="min-h-screen flex flex-col bg-gray px-2"> <!--  вся ширина-->
-    <div class="container my-6 px-1 max-w-[1280px] mx-auto">
+    <div class="container my-16 px-1 max-w-[1280px] mx-auto">
       <div class="flex flex-col lg:flex-row">
         <div class="gap-4 bg-white flex flex-col p-2
-          items-center rounded-t-[56px] lg:p-6 lg:rounded-l-[56px] lg:rounded-tr-none"
+          items-center rounded-t-[56px] lg:p-11 lg:rounded-l-[56px] lg:rounded-tr-none"
         >
           <div class="flex items-center gap-2">
             <img class="h-5 " src="../assets/icons/search-icon.png">
@@ -14,10 +14,10 @@
         </div>
           <div class="flex lg:flex-col flex-row">
            <img
-             class="lg:mt-12 lg:w-[320px]"
+             class="mt-6 lg:w-[320px]"
              src="../assets/icons/weather-state1.png">
-           <div class="mt-24">
-             <div class="text-6xl lg:text-7xl">{{kelvinToCelsius(this.weather.list[0].main.temp)}}
+           <div class="mt-12">
+             <div class="text-6xl lg:text-9xl">{{kelvinToCelsius(this.weather.list[0].main.temp)}}
                <span class="text-4xl relative bottom-[20px] lg:bottom-[64px]">°C</span>
              </div>
              <div class="text-xl lg:text-3xl lg:mt-10">{{GetCurrentDay()}}</div>
@@ -46,8 +46,8 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col p-4 w-full bg-content rounded-b-[46px] lg:rounded-bl-none lg:rounded-r-[46px]">
-          <div class="lg:flex justify-between font-bold text-slate-400 text-3xl hidden">
+        <div class="flex flex-col p-11 w-full bg-content rounded-b-[46px] lg:rounded-bl-none lg:rounded-r-[46px]">
+          <div class="lg:flex justify-between font-bold text-slate-400 text-2xl hidden">
             <div>
               <span class="hover:text-black">Today</span>
               <span class="text-black underline pl-6 underline-offset-8">Week</span>
@@ -55,7 +55,7 @@
             <div class="text-2xl flex items-center gap-4">
               <span class="px-3 py-2 bg-black rounded-full text-white">°C</span>
               <span class="text-black px-3 py-2 bg-white rounded-full">°F</span>
-              <img class="w-14 h-14 rounded-xl" src="../assets/img/indian-2.jpg">
+              <img class="w-14 h-14 ml-8 rounded-xl" src="../assets/img/indian-2.jpg">
             </div>
           </div>
           <div class="mt-12 hidden gap-4 lg:grid lg:grid-cols-4 xl:grid-cols-7">
@@ -95,12 +95,12 @@
             <div>{{kelvinToCelsius(weather.list[36].main.temp)}}°C</div>
           </div>
           </div>
-          <div class="hidden lg:flex h-full lg:mt-28 xl:mt-8 gap-10 flex-col">
+          <div class="hidden lg:flex h-full lg:mt-28 xl:mt-12 flex-col">
             <div class="font-semibold text-4xl">Today's Highlights</div>
-            <div class="grid lg:grid-cols-2 xl:grid-cols-3 justify-between h-full gap-4">
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 xl:auto-rows-[224px] content-end h-full gap-4">
               <div class="highlights-card">
                 <div class="text-xl text-slate-400">Humidity</div>
-                <div class="text-6xl">{{weather.list[0].main.humidity}}%</div>
+                <div class="text-5xl font-semibold">{{weather.list[0].main.humidity}}%</div>
                 <div class="text-xl">Normal</div>
               </div>
               <div class="lg:gap-6 xl:gap-0 highlights-card">
@@ -113,7 +113,7 @@
                       <div class="barOverflow">
                         <div class="bar"></div>
                       </div>
-                      <span class="text-6xl relative bottom-[40px]">5</span>
+                      <span class="text-5xl relative bottom-[40px]">5</span>
                     </div>
                     <div class="absolute text-slate-400 -left-[4%] text-xl bottom-[30%]">0</div>
                     <div class="absolute text-slate-400 left-[6%] text-xl bottom-[78%]">3</div>
@@ -127,7 +127,7 @@
                 <div class="text-xl text-slate-400">
                   Wind Status
                 </div>
-                <div class="text-6xl">
+                <div class="text-5xl font-semibold">
                   {{weather.list[0].wind.speed}}
                 </div>
                 <div class="text-xl">
@@ -138,7 +138,7 @@
                 <div class="text-xl text-slate-400">
                   Visibility
                 </div>
-                <div class="text-3xl">
+                <div class="text-5xl font-semibold">
                   {{weather.list[0].visibility}}
                 </div>
                 <div class="text-xl">
@@ -149,7 +149,7 @@
                 <div class="text-xl text-slate-400">
                   Air Quality
                 </div>
-                <div class="text-3xl">
+                <div class="text-5xl font-semibold">
                   105
                 </div>
                 <div class="text-xl">
@@ -161,14 +161,14 @@
                   Sunrise & Sunset
                 </div>
                 <div class="flex gap-6">
-                  <img class="w-14 h-14" src="../assets/img/arrowUp.jpg">
+                  <img class="h-14" src="../assets/img/arrowUp.jpg">
                   <div>
                     <div class="font-semibold text-xl">6:35 AM</div>
                     <div class="font-semibold text-sm text-slate-400">-1m 46s</div>
                   </div>
                 </div>
                 <div class="flex gap-6">
-                  <img class="w-14 h-14 rotate-180" src="../assets/img/arrowUp.jpg">
+                  <img class="h-14 rotate-180" src="../assets/img/arrowUp.jpg">
                   <div>
                     <div class="font-semibold text-xl">5:42 PM</div>
                     <div class="font-semibold text-sm text-slate-400">-2m 22s</div>
