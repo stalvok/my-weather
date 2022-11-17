@@ -37,12 +37,12 @@
               </div>
               <div
                 class="text-xl flex items-center justify-center
-                lg:mt-10 p-8 rounded-xl text-white z-10 bg-center bg-cover relative lg:text-2xl">
+                lg:mt-10 p-5 lg:p-10 rounded-xl text-white z-10 bg-center bg-cover relative lg:text-2xl">
                 <img
                   class="h-full shadow-xl rounded-2xl lg:w-full absolute -z-10"
                   src="../assets/img/city-bg.jpg"
                 >
-                <div class="bg-black absolute h-full -z-10 opacity-30 rounded-2xl w-full"> </div>
+                <div class="bg-black absolute h-full -z-10 opacity-40 rounded-2xl w-full"> </div>
                 {{weather.city.country}},{{weather.city.name}}
               </div>
             </div>
@@ -54,13 +54,13 @@
               <span class="hover:text-black">Today</span>
               <span class="text-black underline pl-6 underline-offset-8">Week</span>
             </div>
-            <div class="text-2xl flex items-center gap-4">
+            <div class="text-lg flex items-center gap-4">
               <span class="px-3 py-2 bg-black rounded-full text-white">°C</span>
               <span class="text-black px-3 py-2 bg-white rounded-full">°F</span>
               <img class="w-14 h-14 ml-8 rounded-xl" src="../assets/img/avatar.jpeg">
             </div>
           </div>
-          <div class="mt-20 hidden gap-1l lg:grid gap-2 lg:grid-cols-[repeat(7,minmax(100px,_1fr))]">
+          <div class="mt-20 hidden gap-2  lg:grid gap-2 lg:grid-cols-[repeat(7,minmax(100px,_1fr))]">
             <div class="weeks-day-card">
               <div class="font-medium">{{GetCurrentDayShort(1)}}</div>
               <img class="h-12" src="../assets/icons/weather-state1.png">
@@ -99,7 +99,7 @@
           </div>
           <div class="hidden lg:flex h-full lg:mt-28 xl:mt-14 flex-col lg:justify-end gap-10">
             <div class="font-semibold text-4xl">Today's Highlights</div>
-            <div class="grid lg:grid-cols-2 xl:grid-cols-3 xl:auto-rows-[224px] content-end  gap-4">
+            <div class="grid lg:grid-cols-2 lg:auto-rows-[200px]  xl:grid-cols-3 xl:auto-rows-[224px] content-end gap-6">
               <div class="highlights-card">
                 <div class="text-xl text-slate-400">Humidity</div>
                 <div class="text-5xl font-medium">{{weather.list[0].main.humidity}}%</div>
@@ -110,7 +110,7 @@
                   UV index
                 </div>
                 <div>
-                  <div class="relative flex w-[200px] top-[32px] mx-auto justify-center">
+                  <div class="relative flex w-[200px] xl:top-[32px] mx-auto justify-center">
                     <div class="progress">
                       <div class="barOverflow">
                         <div class="bar"></div>
